@@ -1,0 +1,13 @@
+{
+	"name": "com.em.profilesystem",
+	"displayName": "EM Profile System",
+	"version": "0.0.1",
+    "unity": "2020.1",
+    "unityRelease": "7f1",
+	"dependencies": {
+	},
+    "author": {
+        "name": "Maxim Epishev",
+        "email": "epishev.m@mail.ru"
+    }
+}
