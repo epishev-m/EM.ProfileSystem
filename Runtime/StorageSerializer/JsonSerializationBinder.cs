@@ -10,8 +10,7 @@ using IoC;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
-public class JsonSerializationBinder :
-	DefaultSerializationBinder
+public class JsonSerializationBinder : DefaultSerializationBinder
 {
 	private readonly IReflector _reflector;
 
