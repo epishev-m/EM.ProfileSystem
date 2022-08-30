@@ -89,7 +89,7 @@ public class JsonSerializationBinder :
 			{
 				continue;
 			}
-			
+
 			var key = jsonAttribute.Guid;
 
 			if (!result.TryAdd(key, type))
