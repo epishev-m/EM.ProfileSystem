@@ -1,7 +1,9 @@
 {
     "name": "EM.ProfileSystem.Tests",
+    "rootNamespace": "",
     "references": [
-        "EM.ProfileSystem"
+        "EM.ProfileSystem",
+        "EM.Foundation"
     ],
     "includePlatforms": [
         "Editor"
