@@ -46,31 +46,39 @@ public sealed class JsonSerializeConfigTests
 
 	private sealed class TestReflector : IReflector
 	{
-		public IReflectionInfo GetReflectionInfo<T>()
+		public Result<IReflectionInfo> GetReflectionInfo<T>()
 		{
 			throw new NotImplementedException();
 		}
 
-		public IReflectionInfo GetReflectionInfo(Type type)
+		public Result<IReflectionInfo> GetReflectionInfo(Type type)
 		{
-			return new ReflectionInfo();
+			var reflectionInfo = new ReflectionInfo();
+
+			return new SuccessResult<IReflectionInfo>(reflectionInfo);
 		}
 	}
 
 	[SuppressMessage("ReSharper", "UnassignedGetOnlyAutoProperty")]
+	[SuppressMessage("ReSharper", "CollectionNeverUpdated.Local")]
 	private sealed class ReflectionInfo : IReflectionInfo
 	{
-		public ConstructorInfo ConstructorInfo
+		public Result<ConstructorInfo> GetConstructorInfo()
 		{
-			get;
-		}
-		
-		public IEnumerable<Type> ConstructorParametersTypes
-		{
-			get;
+			throw new NotImplementedException();
 		}
 
-		IEnumerable<Attribute> IReflectionInfo.Attributes => new List<TestReflectionInfoAttribute>();
+		public Result<IEnumerable<Type>> GetConstructorParamTypes()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Result<IEnumerable<Attribute>> GetAttributes()
+		{
+			var attributes = new List<TestReflectionInfoAttribute>();
+
+			return new SuccessResult<IEnumerable<Attribute>>(attributes);
+		}
 	}
 
 	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]

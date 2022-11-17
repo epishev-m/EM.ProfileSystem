@@ -38,8 +38,24 @@ public class JsonSerializationBinder : DefaultSerializationBinder
 		out string? assemblyName,
 		out string? typeName)
 	{
-		var reflectionInfo = _reflector.GetReflectionInfo(serializedType);
-		var attr = reflectionInfo.Attributes.FirstOrDefault(a => a is JsonSerializeAttribute);
+		assemblyName = default;
+		typeName = default;
+
+		var resultReflectionInfo = _reflector.GetReflectionInfo(serializedType);
+
+		if (resultReflectionInfo.Failure)
+		{
+			return;
+		}
+
+		var resultAttributes = resultReflectionInfo.Data.GetAttributes();
+
+		if (resultAttributes.Failure)
+		{
+			return;
+		}
+
+		var attr = resultAttributes.Data.FirstOrDefault(a => a is JsonSerializeAttribute);
 
 		if (attr is not JsonSerializeAttribute jsonAttribute)
 		{
@@ -81,8 +97,23 @@ public class JsonSerializationBinder : DefaultSerializationBinder
 
 		foreach (var type in types)
 		{
-			var reflectionInfo = _reflector.GetReflectionInfo(type);
-			var attr = reflectionInfo.Attributes.FirstOrDefault(a => a is JsonSerializeAttribute);
+			var resultReflectionInfo = _reflector.GetReflectionInfo(type);
+
+			if (resultReflectionInfo.Failure)
+			{
+				//TODO error
+				continue;
+			}
+
+			var resultAttributes = resultReflectionInfo.Data.GetAttributes();
+
+			if (resultAttributes.Failure)
+			{
+				//TODO error
+				continue;
+			}
+
+			var attr = resultAttributes.Data.FirstOrDefault(a => a is JsonSerializeAttribute);
 
 			if (attr is not JsonSerializeAttribute jsonAttribute)
 			{
