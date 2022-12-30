@@ -7,7 +7,7 @@ using NUnit.Framework;
 internal sealed class ProfileBindingTests
 {
 	#region Constructor
-	
+
 	[Test]
 	public void ProfileBinding_Constructor_Exception()
 	{
@@ -26,9 +26,9 @@ internal sealed class ProfileBindingTests
 		//Assert
 		Assert.IsTrue(actual);
 	}
-	
+
 	#endregion
-	
+
 	#region LifeTime
 
 	[Test]
@@ -188,14 +188,14 @@ internal sealed class ProfileBindingTests
 	}
 
 	#endregion
-	
+
 	#region Nested
 
 	private class Test : IStorageSegmentReceiver
 	{
 		#region IStorageSegmentReceiver
-		
-		public IEnumerable<IStorageSegment> GetStorageSegments()
+
+		public IStorageSegment GetStorageSegments()
 		{
 			throw new NotImplementedException();
 		}
@@ -207,6 +207,6 @@ internal sealed class ProfileBindingTests
 
 		#endregion
 	}
-	
+
 	#endregion
 }

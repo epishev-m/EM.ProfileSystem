@@ -140,7 +140,7 @@ public sealed class Profile : Binder,
 		foreach (var receiver in receivers)
 		{
 			var segment = receiver.GetStorageSegments();
-			segments.AddRange(segment);
+			segments.Add(segment);
 		}
 
 		return segments;

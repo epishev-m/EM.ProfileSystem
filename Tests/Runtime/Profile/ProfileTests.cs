@@ -314,7 +314,7 @@ internal sealed class ProfileTests
 	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
 	private sealed class TesStorageSegmentReceiver : IStorageSegmentReceiver
 	{
-		public IEnumerable<IStorageSegment> GetStorageSegments()
+		public IStorageSegment GetStorageSegments()
 		{
 			throw new NotImplementedException();
 		}
