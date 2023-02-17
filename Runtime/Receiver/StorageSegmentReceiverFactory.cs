@@ -4,8 +4,7 @@
 using System;
 using IoC;
 
-public sealed class StorageSegmentReceiverFactory :
-	IStorageSegmentReceiverFactory
+public sealed class StorageSegmentReceiverFactory : IStorageSegmentReceiverFactory
 {
 	private readonly IDiContainer _diContainer;
 

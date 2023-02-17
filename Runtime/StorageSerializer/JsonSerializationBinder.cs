@@ -10,8 +10,7 @@ using IoC;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
-public class JsonSerializationBinder :
-	DefaultSerializationBinder
+public class JsonSerializationBinder : DefaultSerializationBinder
 {
 	private readonly IReflector _reflector;
 
@@ -89,7 +88,7 @@ public class JsonSerializationBinder :
 			{
 				continue;
 			}
-			
+
 			var key = jsonAttribute.Guid;
 
 			if (!result.TryAdd(key, type))

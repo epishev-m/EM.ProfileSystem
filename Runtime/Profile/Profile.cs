@@ -7,8 +7,7 @@ using System.Linq;
 using BuildSystem;
 using Foundation;
 
-public class Profile :
-	Binder,
+public class Profile : Binder,
 	IProfile
 {
 	private readonly IStorageSerializer _storageSerializer;
@@ -35,7 +34,7 @@ public class Profile :
 		{
 			Version = _versionConfig.Version,
 			Code = _versionConfig.Code,
-			Time = 0,
+			Time = 0, //TODO
 			Segments = segments.ToList()
 		};
 
@@ -88,7 +87,7 @@ public class Profile :
 	}
 
 	#endregion
-	
+
 	#region Binder
 
 	protected override IBinding GetRawBinding(object key,

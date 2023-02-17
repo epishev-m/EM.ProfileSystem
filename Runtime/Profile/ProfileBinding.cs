@@ -3,8 +3,7 @@
 
 using Foundation;
 
-public sealed class ProfileBinding :
-	Binding,
+public sealed class ProfileBinding : Binding,
 	IProfileBindingLifeTime,
 	IProfileBinding
 {
