@@ -17,7 +17,7 @@ public sealed class ProfileBinding : Binding,
 
 	public IProfileBinding InGlobal()
 	{
-		Requires.ValidOperation(LifeTime == LifeTime.External, this, nameof(InGlobal));
+		Requires.ValidOperation(LifeTime == LifeTime.External, this);
 
 		LifeTime = LifeTime.Global;
 
@@ -26,7 +26,7 @@ public sealed class ProfileBinding : Binding,
 
 	public IProfileBinding InLocal()
 	{
-		Requires.ValidOperation(LifeTime == LifeTime.External, this, nameof(InLocal));
+		Requires.ValidOperation(LifeTime == LifeTime.External, this);
 
 		LifeTime = LifeTime.Local;
 
@@ -40,7 +40,7 @@ public sealed class ProfileBinding : Binding,
 	public new IProfileBinding To<T>()
 		where T : class, IStorageSegmentReceiver
 	{
-		Requires.ValidOperation(LifeTime != LifeTime.External, this, nameof(To));
+		Requires.ValidOperation(LifeTime != LifeTime.External, this);
 		Requires.ValidOperation(Values == null, this, nameof(Values));
 
 		return base.To<T>() as IProfileBinding;
