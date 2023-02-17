@@ -7,7 +7,7 @@ using System.Linq;
 using BuildSystem;
 using Foundation;
 
-public class Profile : Binder,
+public sealed class Profile : Binder,
 	IProfile
 {
 	private readonly IStorageSerializer _storageSerializer;
@@ -105,6 +105,11 @@ public class Profile : Binder,
 		IStorageSegmentReceiverFactory factory,
 		IVersionConfig versionConfig)
 	{
+		Requires.NotNull(storageSerializer, nameof(storageSerializer));
+		Requires.NotNull(storageLocation, nameof(storageLocation));
+		Requires.NotNull(factory, nameof(factory));
+		Requires.NotNull(versionConfig, nameof(versionConfig));
+
 		_storageSerializer = storageSerializer;
 		_storageLocation = storageLocation;
 		_factory = factory;
