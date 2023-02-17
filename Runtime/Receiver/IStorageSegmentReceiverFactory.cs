@@ -5,7 +5,7 @@ using System;
 
 public interface IStorageSegmentReceiverFactory
 {
-	IStorageSegmentReceiver Get(Type type);
+	IStorageSegmentSaver Get(Type type);
 }
 
 }

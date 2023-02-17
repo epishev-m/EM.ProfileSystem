@@ -3,7 +3,6 @@
 
 public interface IStorageSegment
 {
-	void Apply(IStorageSegmentReceiver receiver);
 }
 
 }

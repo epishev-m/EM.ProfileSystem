@@ -2,6 +2,7 @@ namespace EM.Profile
 {
 
 using System;
+using System.Text;
 
 public sealed class JsonSerializeAttribute : Attribute
 {
@@ -9,7 +10,7 @@ public sealed class JsonSerializeAttribute : Attribute
 
 	public JsonSerializeAttribute(string guid)
 	{
-		Guid = guid;
+		Guid = new StringBuilder("#").Append(guid).ToString();
 	}
 }
 

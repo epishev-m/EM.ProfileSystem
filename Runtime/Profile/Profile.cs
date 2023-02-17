@@ -116,9 +116,9 @@ public sealed class Profile : Binder,
 		_versionConfig = versionConfig;
 	}
 
-	private IEnumerable<IStorageSegmentReceiver> GetReceivers(IEnumerable<object> values)
+	private IEnumerable<IStorageSegmentSaver> GetReceivers(IEnumerable<object> values)
 	{
-		var receivers = new List<IStorageSegmentReceiver>();
+		var receivers = new List<IStorageSegmentSaver>();
 
 		foreach (var value in values)
 		{
@@ -133,25 +133,25 @@ public sealed class Profile : Binder,
 		return receivers;
 	}
 
-	private static IEnumerable<IStorageSegment> GetSegments(IEnumerable<IStorageSegmentReceiver> receivers)
+	private static IEnumerable<IStorageSegment> GetSegments(IEnumerable<IStorageSegmentSaver> receivers)
 	{
 		var segments = new List<IStorageSegment>();
 
 		foreach (var receiver in receivers)
 		{
-			var segment = receiver.GetStorageSegments();
-			segments.AddRange(segment);
+			var segment = receiver.Save();
+			segments.Add(segment);
 		}
 
 		return segments;
 	}
 
 	private static void ReceiverApply(IStorageSegment segment,
-		IEnumerable<IStorageSegmentReceiver> receivers)
+		IEnumerable<IStorageSegmentSaver> receivers)
 	{
 		foreach (var receiver in receivers)
 		{
-			if (receiver.Apply(segment))
+			if (receiver.Load(segment))
 			{
 				break;
 			}

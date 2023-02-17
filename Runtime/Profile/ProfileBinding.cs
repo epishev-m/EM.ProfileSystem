@@ -38,7 +38,7 @@ public sealed class ProfileBinding : Binding,
 	#region IProfileBinding
 
 	public new IProfileBinding To<T>()
-		where T : class, IStorageSegmentReceiver
+		where T : class, IStorageSegmentSaver
 	{
 		Requires.ValidOperation(LifeTime != LifeTime.External, this);
 		Requires.ValidOperation(Values == null, this, nameof(Values));

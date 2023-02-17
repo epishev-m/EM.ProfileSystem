@@ -10,9 +10,9 @@ public sealed class StorageSegmentReceiverFactory : IStorageSegmentReceiverFacto
 
 	#region IStorageSegmentReceiverFactory
 
-	public IStorageSegmentReceiver Get(Type type)
+	public IStorageSegmentSaver Get(Type type)
 	{
-		return _diContainer.GetInstance(type) as IStorageSegmentReceiver;
+		return _diContainer.Resolve(type) as IStorageSegmentSaver;
 	}
 
 	#endregion

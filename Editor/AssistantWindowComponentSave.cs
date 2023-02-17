@@ -14,14 +14,14 @@ public sealed class AssistantWindowComponentSave : ScriptableObjectAssistantWind
 
 	protected override string GetCreatePath()
 	{
-		var path = EditorUtility.SaveFilePanelInProject("Create Save Config", "SaveConfig.asset", "asset", "");
+		var path = EditorUtility.SaveFilePanelInProject("Create Save Settings", "SaveSettings.asset", "asset", "");
 
 		return path;
 	}
 
 	protected override string GetSelectPath()
 	{
-		var path = EditorUtility.OpenFilePanel("Select Save Config", "Assets", "asset");
+		var path = EditorUtility.OpenFilePanel("Select Save Settings", "Assets", "asset");
 
 		return path;
 	}
@@ -42,39 +42,39 @@ public sealed class AssistantWindowComponentSave : ScriptableObjectAssistantWind
 	{
 		EditorGUILayout.LabelField("Save file ext:");
 
-		if (string.IsNullOrWhiteSpace(Config.SaveExt))
+		if (string.IsNullOrWhiteSpace(Settings.SaveExt))
 		{
 			EditorGUILayout.HelpBox("Save file extension not set", MessageType.Warning);
 		}
 
-		Config.SaveExt = EditorGUILayout.TextField(Config.SaveExt);
+		Settings.SaveExt = EditorGUILayout.TextField(Settings.SaveExt);
 	}
 
 	private void OnGUIDevSaveFileExt()
 	{
 		EditorGUILayout.LabelField("Dev save file ext:");
 
-		if (string.IsNullOrWhiteSpace(Config.SaveExt))
+		if (string.IsNullOrWhiteSpace(Settings.SaveExt))
 		{
 			EditorGUILayout.HelpBox("Development save file extension not set", MessageType.Warning);
 		}
 
-		Config.DevSaveExt = EditorGUILayout.TextField(Config.DevSaveExt);
+		Settings.DevSaveExt = EditorGUILayout.TextField(Settings.DevSaveExt);
 	}
 
 	private void OnGUIEditorMode()
 	{
 		EditorGUILayout.Space();
-		Config.IsEditorMode = EditorGUILayout.Toggle("Use Editor Mode:", Config.IsEditorMode);
+		Settings.IsEditorMode = EditorGUILayout.Toggle("Use Editor Mode:", Settings.IsEditorMode);
 		EditorGUILayout.LabelField("Editor save path:");
 
-		if (string.IsNullOrWhiteSpace(Config.EditorSavePath))
+		if (string.IsNullOrWhiteSpace(Settings.EditorSavePath))
 		{
 			EditorGUILayout.HelpBox("Editor save path not set", MessageType.Warning);
 		}
 
-		GUI.enabled = Config.IsEditorMode;
-		Config.EditorSavePath = EditorGUILayout.TextField(Config.EditorSavePath);
+		GUI.enabled = Settings.IsEditorMode;
+		Settings.EditorSavePath = EditorGUILayout.TextField(Settings.EditorSavePath);
 		GUI.enabled = true;
 	}
 
@@ -85,15 +85,15 @@ public sealed class AssistantWindowComponentSave : ScriptableObjectAssistantWind
 
 		if (GUILayout.Button("Delete save (Edit Mode)"))
 		{
-			AssetDatabase.DeleteAsset(Config.EditorSavePath);
+			AssetDatabase.DeleteAsset(Settings.EditorSavePath);
 		}
 
 		if (GUILayout.Button("Delete save"))
 		{
-			var cashValue = Config.IsEditorMode;
-			Config.IsEditorMode = false;
-			var filePath = Config.GetFullPath("*");
-			Config.IsEditorMode = cashValue;
+			var cashValue = Settings.IsEditorMode;
+			Settings.IsEditorMode = false;
+			var filePath = Settings.GetFullPath("*");
+			Settings.IsEditorMode = cashValue;
 			var directoryPath = Path.GetDirectoryName(filePath);
 
 			if (!string.IsNullOrWhiteSpace(directoryPath))

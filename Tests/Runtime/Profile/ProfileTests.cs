@@ -222,7 +222,7 @@ internal sealed class ProfileTests
 
 		// Act
 		var profile = new Profile(storageSerializer, storageLocation, factory, versionConfig);
-		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentReceiver>();
+		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentSaver>();
 		var actualResult = profile.Unbind(key);
 		var actual = profile.Bind(key);
 
@@ -258,7 +258,7 @@ internal sealed class ProfileTests
 
 		// Act
 		var profile = new Profile(storageSerializer, storageLocation, factory, versionConfig);
-		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentReceiver>();
+		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentSaver>();
 		var actualResult = profile.Unbind<string>();
 		var actual = profile.Bind(key);
 
@@ -279,7 +279,7 @@ internal sealed class ProfileTests
 
 		// Act
 		var profile = new Profile(storageSerializer, storageLocation, factory, versionConfig);
-		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentReceiver>();
+		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentSaver>();
 		profile.Unbind(b => b.Key.Equals(key));
 		var actual = profile.Bind(key);
 
@@ -299,7 +299,7 @@ internal sealed class ProfileTests
 
 		// Act
 		var profile = new Profile(storageSerializer, storageLocation, factory, versionConfig);
-		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentReceiver>();
+		var expected = profile.Bind(key).InLocal().To<TesStorageSegmentSaver>();
 		profile.UnbindAll();
 		var actual = profile.Bind(key);
 
@@ -312,14 +312,14 @@ internal sealed class ProfileTests
 	#region Nested
 
 	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
-	private sealed class TesStorageSegmentReceiver : IStorageSegmentReceiver
+	private sealed class TesStorageSegmentSaver : IStorageSegmentSaver
 	{
-		public IEnumerable<IStorageSegment> GetStorageSegments()
+		public IStorageSegment Save()
 		{
 			throw new NotImplementedException();
 		}
 
-		public bool Apply(IStorageSegment segment)
+		public bool Load(IStorageSegment segment)
 		{
 			throw new NotImplementedException();
 		}
@@ -354,7 +354,7 @@ internal sealed class ProfileTests
 
 	private sealed class TestStorageSegmentReceiverFactory : IStorageSegmentReceiverFactory
 	{
-		public IStorageSegmentReceiver Get(Type type)
+		public IStorageSegmentSaver Get(Type type)
 		{
 			throw new NotImplementedException();
 		}

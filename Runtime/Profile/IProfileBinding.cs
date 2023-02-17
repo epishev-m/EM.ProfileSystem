@@ -4,7 +4,7 @@
 public interface IProfileBinding
 {
 	IProfileBinding To<T>()
-		where T : class, IStorageSegmentReceiver;
+		where T : class, IStorageSegmentSaver;
 }
 
 }

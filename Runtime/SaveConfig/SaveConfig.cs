@@ -4,7 +4,7 @@
 using System.IO;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(SaveConfig), menuName = "Game/SaveConfig")]
+[CreateAssetMenu(fileName = nameof(SaveConfig), menuName = "Game/Save Config")]
 public class SaveConfig : ScriptableObject,
 	ISaveConfig
 {
