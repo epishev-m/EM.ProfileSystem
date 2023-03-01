@@ -15,7 +15,7 @@ public sealed class JsonSerializeConfig
 
 	public JsonSerializeConfig(IReflector reflector)
 	{
-		Requires.NotNull(reflector, nameof(reflector));
+		Requires.NotNullParam(reflector, nameof(reflector));
 
 		_reflector = reflector;
 		Settings = CreateSettings();

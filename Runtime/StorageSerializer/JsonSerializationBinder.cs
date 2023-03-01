@@ -83,7 +83,7 @@ public class JsonSerializationBinder : DefaultSerializationBinder
 
 	public JsonSerializationBinder(IReflector reflector)
 	{
-		Requires.NotNull(reflector, nameof(reflector));
+		Requires.NotNullParam(reflector, nameof(reflector));
 
 		_reflector = reflector;
 		_typeList = LoadTypes();

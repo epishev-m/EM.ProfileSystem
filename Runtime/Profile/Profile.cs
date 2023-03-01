@@ -105,10 +105,10 @@ public sealed class Profile : Binder,
 		IStorageSegmentReceiverFactory factory,
 		IVersionConfig versionConfig)
 	{
-		Requires.NotNull(storageSerializer, nameof(storageSerializer));
-		Requires.NotNull(storageLocation, nameof(storageLocation));
-		Requires.NotNull(factory, nameof(factory));
-		Requires.NotNull(versionConfig, nameof(versionConfig));
+		Requires.NotNullParam(storageSerializer, nameof(storageSerializer));
+		Requires.NotNullParam(storageLocation, nameof(storageLocation));
+		Requires.NotNullParam(factory, nameof(factory));
+		Requires.NotNullParam(versionConfig, nameof(versionConfig));
 
 		_storageSerializer = storageSerializer;
 		_storageLocation = storageLocation;
