@@ -2,8 +2,9 @@
     "name": "EM.ProfileSystem.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:10b5120f61b7edb429fa20b4231e85bf",
-        "GUID:9b94314b2a582db42aba29b90e90deb9"
+        "EM.ProfileSystem",
+        "EM.Foundation.Editor",
+        "EM.Assistant.Editor"
     ],
     "includePlatforms": [
         "Editor"

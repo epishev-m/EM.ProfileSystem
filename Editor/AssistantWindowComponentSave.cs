@@ -2,7 +2,7 @@ namespace EM.Profile.Editor
 {
 
 using System.IO;
-using Foundation.Editor;
+using Assistant.Editor;
 using UnityEditor;
 using UnityEngine;
 
