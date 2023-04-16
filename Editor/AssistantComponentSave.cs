@@ -6,7 +6,7 @@ using Assistant.Editor;
 using UnityEditor;
 using UnityEngine;
 
-public sealed class AssistantWindowComponentSave : ScriptableObjectAssistantWindowComponent<SaveConfig>
+public sealed class AssistantComponentSave : ScriptableObjectAssistantComponent<SaveConfig>
 {
 	#region ScriptableObjectAssistantWindowComponent
 
