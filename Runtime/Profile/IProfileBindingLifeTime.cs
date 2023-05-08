@@ -13,6 +13,8 @@ public interface IProfileBindingLifeTime
 	IProfileBinding InGlobal();
 
 	IProfileBinding InLocal();
+
+	IProfileBinding SetLifeTime(LifeTime lifeTime);
 }
 
 }

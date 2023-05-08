@@ -3,7 +3,6 @@
     "rootNamespace": "",
     "references": [
         "EM.ProfileSystem",
-        "EM.Foundation.Editor",
         "EM.Assistant.Editor"
     ],
     "includePlatforms": [

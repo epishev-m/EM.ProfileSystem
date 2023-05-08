@@ -33,6 +33,15 @@ public sealed class ProfileBinding : Binding,
 		return this;
 	}
 
+	public IProfileBinding SetLifeTime(LifeTime lifeTime)
+	{
+		Requires.ValidOperation(LifeTime == LifeTime.External, this);
+
+		LifeTime = lifeTime;
+
+		return this;
+	}
+
 	#endregion
 
 	#region IProfileBinding
