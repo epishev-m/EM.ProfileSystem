@@ -314,12 +314,12 @@ internal sealed class ProfileTests
 	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
 	private sealed class TesStorageSegmentSaver : IStorageSegmentSaver
 	{
-		public IStorageSegment Save()
+		public IProfileStorageSegment Save()
 		{
 			throw new NotImplementedException();
 		}
 
-		public bool Load(IStorageSegment segment)
+		public bool Load(IProfileStorageSegment segment)
 		{
 			throw new NotImplementedException();
 		}
@@ -327,12 +327,12 @@ internal sealed class ProfileTests
 
 	private sealed class TestStorageSerializer : IStorageSerializer
 	{
-		public byte[] Save(Storage storage)
+		public byte[] Save(ProfileStorage profileStorage)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Storage Load(byte[] bytes)
+		public ProfileStorage Load(byte[] bytes)
 		{
 			throw new NotImplementedException();
 		}

@@ -195,12 +195,12 @@ internal sealed class ProfileBindingTests
 	{
 		#region IStorageSegmentReceiver
 
-		public IStorageSegment Save()
+		public IProfileStorageSegment Save()
 		{
 			throw new NotImplementedException();
 		}
 
-		public bool Load(IStorageSegment segment)
+		public bool Load(IProfileStorageSegment segment)
 		{
 			throw new NotImplementedException();
 		}

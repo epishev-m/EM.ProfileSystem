@@ -12,15 +12,15 @@ public class JsonStorageSerializer : IStorageSerializer
 
 	#region IStorageSerializer
 
-	public byte[] Save(Storage storage)
+	public byte[] Save(ProfileStorage profileStorage)
 	{
-		var json = JsonConvert.SerializeObject(storage, _config.Settings);
+		var json = JsonConvert.SerializeObject(profileStorage, _config.Settings);
 		var result = _encoding.GetBytes(json);
 
 		return result;
 	}
 
-	public Storage Load(byte[] bytes)
+	public ProfileStorage Load(byte[] bytes)
 	{
 		if (bytes == null || bytes.Length == 0)
 		{
@@ -28,7 +28,7 @@ public class JsonStorageSerializer : IStorageSerializer
 		}
 
 		var json = _encoding.GetString(bytes);
-		var storage = JsonConvert.DeserializeObject<Storage>(json, _config.Settings);
+		var storage = JsonConvert.DeserializeObject<ProfileStorage>(json, _config.Settings);
 
 		return storage;
 	}

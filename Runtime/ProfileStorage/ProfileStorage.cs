@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-public sealed class Storage
+public sealed class ProfileStorage
 {
 	public string Version;
 
@@ -11,7 +11,7 @@ public sealed class Storage
 
 	public long Time;
 
-	public List<IStorageSegment> Segments;
+	public List<IProfileStorageSegment> Segments;
 }
 
 }

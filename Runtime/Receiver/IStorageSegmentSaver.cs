@@ -3,9 +3,9 @@
 
 public interface IStorageSegmentSaver
 {
-	IStorageSegment Save();
+	IProfileStorageSegment Save();
 
-	bool Load(IStorageSegment segment);
+	bool Load(IProfileStorageSegment segment);
 }
 
 }

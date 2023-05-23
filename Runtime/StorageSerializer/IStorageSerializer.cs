@@ -3,9 +3,9 @@
 
 public interface IStorageSerializer
 {
-	byte[] Save(Storage storage);
+	byte[] Save(ProfileStorage profileStorage);
 
-	Storage Load(byte[] bytes);
+	ProfileStorage Load(byte[] bytes);
 }
 
 }

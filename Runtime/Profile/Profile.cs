@@ -30,7 +30,7 @@ public sealed class Profile : Binder,
 		var receivers = GetReceivers(binding.Values);
 		var segments = GetSegments(receivers);
 
-		var storage = new Storage
+		var storage = new ProfileStorage
 		{
 			Version = _versionConfig.Version,
 			Code = _versionConfig.Code,
@@ -133,9 +133,9 @@ public sealed class Profile : Binder,
 		return receivers;
 	}
 
-	private static IEnumerable<IStorageSegment> GetSegments(IEnumerable<IStorageSegmentSaver> receivers)
+	private static IEnumerable<IProfileStorageSegment> GetSegments(IEnumerable<IStorageSegmentSaver> receivers)
 	{
-		var segments = new List<IStorageSegment>();
+		var segments = new List<IProfileStorageSegment>();
 
 		foreach (var receiver in receivers)
 		{
@@ -146,7 +146,7 @@ public sealed class Profile : Binder,
 		return segments;
 	}
 
-	private static void ReceiverApply(IStorageSegment segment,
+	private static void ReceiverApply(IProfileStorageSegment segment,
 		IEnumerable<IStorageSegmentSaver> receivers)
 	{
 		foreach (var receiver in receivers)

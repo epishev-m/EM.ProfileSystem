@@ -13,11 +13,11 @@ public sealed class ProfileBinding : Binding,
 	{
 		get;
 		private set;
-	} = LifeTime.External;
+	} = LifeTime.None;
 
 	public IProfileBinding InGlobal()
 	{
-		Requires.ValidOperation(LifeTime == LifeTime.External, this);
+		Requires.ValidOperation(LifeTime == LifeTime.None, this);
 
 		LifeTime = LifeTime.Global;
 
@@ -26,7 +26,7 @@ public sealed class ProfileBinding : Binding,
 
 	public IProfileBinding InLocal()
 	{
-		Requires.ValidOperation(LifeTime == LifeTime.External, this);
+		Requires.ValidOperation(LifeTime == LifeTime.None, this);
 
 		LifeTime = LifeTime.Local;
 
@@ -35,7 +35,7 @@ public sealed class ProfileBinding : Binding,
 
 	public IProfileBinding SetLifeTime(LifeTime lifeTime)
 	{
-		Requires.ValidOperation(LifeTime == LifeTime.External, this);
+		Requires.ValidOperation(LifeTime == LifeTime.None, this);
 
 		LifeTime = lifeTime;
 
@@ -49,7 +49,7 @@ public sealed class ProfileBinding : Binding,
 	public new IProfileBinding To<T>()
 		where T : class, IStorageSegmentSaver
 	{
-		Requires.ValidOperation(LifeTime != LifeTime.External, this);
+		Requires.ValidOperation(LifeTime != LifeTime.None, this);
 		Requires.ValidOperation(Values == null, this, nameof(Values));
 
 		return base.To<T>() as IProfileBinding;
