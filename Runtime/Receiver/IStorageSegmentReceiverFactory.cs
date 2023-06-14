@@ -2,10 +2,11 @@
 {
 
 using System;
+using Foundation;
 
 public interface IStorageSegmentReceiverFactory
 {
-	IStorageSegmentSaver Get(Type type);
+	Result<IStorageSegmentSaver> Get(Type type);
 }
 
 }

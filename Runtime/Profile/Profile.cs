@@ -124,9 +124,9 @@ public sealed class Profile : Binder,
 		{
 			var receiver = _factory.Get((Type) value);
 
-			if (receiver != null)
+			if (receiver.Success)
 			{
-				receivers.Add(receiver);
+				receivers.Add(receiver.Data);
 			}
 		}
 

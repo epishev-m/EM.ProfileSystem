@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using EM.BuildSystem;
+using EM.Foundation;
 using EM.Profile;
 
 internal sealed class ProfileTests
@@ -354,7 +355,7 @@ internal sealed class ProfileTests
 
 	private sealed class TestStorageSegmentReceiverFactory : IStorageSegmentReceiverFactory
 	{
-		public IStorageSegmentSaver Get(Type type)
+		public Result<IStorageSegmentSaver> Get(Type type)
 		{
 			throw new NotImplementedException();
 		}
