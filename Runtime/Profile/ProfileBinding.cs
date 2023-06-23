@@ -50,7 +50,6 @@ public sealed class ProfileBinding : Binding,
 		where T : class, IStorageSegmentSaver
 	{
 		Requires.ValidOperation(LifeTime != LifeTime.None, this);
-		Requires.ValidOperation(Values == null, this, nameof(Values));
 
 		return base.To<T>() as IProfileBinding;
 	}
