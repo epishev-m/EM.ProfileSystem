@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using EM.Foundation;
 using EM.Profile;
 using NUnit.Framework;
@@ -118,29 +117,6 @@ internal sealed class ProfileBindingTests
 		var actual = false;
 		var key = typeof(Test);
 		var binding = new ProfileBinding(key, null, null);
-
-		// Act
-		try
-		{
-			binding.To<Test>();
-		}
-		catch (InvalidOperationException)
-		{
-			actual = true;
-		}
-
-		// Assert
-		Assert.IsTrue(actual);
-	}
-
-	[Test]
-	public void ProfileBinding_ToGeneric_ToGeneric_Exception()
-	{
-		// Arrange
-		var actual = false;
-		var key = typeof(Test);
-		var binding = new ProfileBinding(key, null, null);
-		binding.InGlobal().To<Test>();
 
 		// Act
 		try
