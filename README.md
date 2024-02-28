@@ -1,4 +1,7 @@
 # EM.ProfileSystem
+
+System of local saves. WIP: remote saves and migration
+
 ## Installation
 ### Git
 ```ps1
